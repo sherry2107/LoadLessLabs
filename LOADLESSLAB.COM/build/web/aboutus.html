@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <style>
+            html {
+                position: relative;
+                min-height: 100%;
+            }
+            body {
+                margin-bottom: 60px;
+            }
+            #footer {
+                bottom: 0;
+                width: 100%;
+                height: 350px;
+                background: linear-gradient(#e4e4e7, #6c6c7a, #000000)
+            }
+
+            .container {
+                width: auto;
+                max-width: 680px;
+                padding: 0 15px;
+            }
+            .container .text-muted {
+                margin: 20px 0;
+            }
+            .footertext {
+                color: #ffffff;
+            }
+            .h1{
+                font: "italic";
+                font-family: sans-serif;
+                font-size: large;
+                color: #e6086e;
+            }
+
+            .jumbotron-fluid{
+                height: 95px;
+            }
+            .deepshd{
+                text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+                letter-spacing: .1em;
+            }
+
+
+            .row .block {
+                float: left;
+                width: 25%;
+                height: 95px;
+            }
+            .hoverbtn {
+                display: inline-block;
+                font-size: 18px;
+                font-weight:400;
+                line-height: 50px;
+                cursor: pointer;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                width: 100%;
+                font-family: sans-serif;
+                height: 50px;
+                text-align: center;
+                position: relative;
+                text-decoration: #c82333;
+                z-index: 1;
+                color: #fff;
+            }
+            
+            .hoverbtn:after {
+                pointer-events: none;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                content:'';
+                -webkit-box-sizing: content-box;
+                -moz-box-sizing: content-box;
+                box-sizing: content-box;
+            }
+            .hoverbtn:before {
+                speak: none;
+                font-size: 50px;
+                line-height: 90px;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                display: block;
+                -webkit-font-smoothing: antialiased;
+            }
+            /* Effect 1 */
+            .hoverbtn.effect-1 {
+                background: rgba(255, 255, 255, 0.1);
+                -webkit-transition: background 0.2s, color 0.2s;
+                -moz-transition: background 0.2s, color 0.2s;
+                transition: background 0.2s, color 0.2s;
+            }
+            .hoverbtn.effect-1:after {
+                top: -7px;
+                left: -7px;
+                padding: 7px;
+                box-shadow: 0 0 0 4px #fff;
+                -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+                -webkit-transform: scale(.8);
+                -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+                -moz-transform: scale(.8);
+                -ms-transform: scale(.8);
+                transition: transform 0.2s, opacity 0.2s;
+                transform: scale(.8);
+                opacity: 0;
+            }
+            /* Effect 1a */
+            .hoverbtn.effect-1.sub-a:hover {
+                background: rgba(255, 255, 255, 1);
+                color: #41ab6b;
+            }
+            .hoverbtn.effect-1.sub-a:hover i {
+                color: #41ab6b;
+            }
+            .hoverbtn.effect-1.sub-a:hover:after {
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                transform: scale(1);
+                opacity: 1;
+            }
+            
+            .control-abt{
+                
+                background-color: #ededed;
+            }
+             
+            .rounded-circle{
+                height: 150px;
+                width: 150px;
+            }
+
+            .avatar{
+                padding-left: 80px;
+                padding-top: 20px;
+            }
+
+            .btn-default{
+                background:#0000cc; 
+                color:#fff; 
+                font-weight:700; 
+                text-shadow:1px 1px 0 rgba(0,0,0,0.2); 
+                font-size:14px;
+            }
+            .carousel{
+                box-shadow:2px 2px 20px rgba(0,0,0,0.3); 
+                border:none; 
+                margin-bottom:40px; 
+                background-color:#96281b;
+            }
+            .card-01 .card-body{
+                position:relative; 
+                padding-top:30px;
+            }
+            .card-01 .badge-box{position:absolute; top:-20px; left:50%; width:100px; height:100px;margin-left:-50px; text-align:center;}
+.card-01 .badge-box i{background:#Dcc6e0; color:#96281b; border-radius:50%;  width:50px; height:50px; line-height:50px; text-align:center; font-size:20px;}
+        </style>
+        <title>LOADLESSLABS</title>
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+        <link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+    </head>
+
+    <body style=" background-color: #ededed">
+        <div>
+            <header>
+                <div style="background: linear-gradient( #6c6c7a,#e4e4e7);">
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="avatar"  style=" padding-left:10px; padding-bottom: 10px;"><img src="images/llllogo.jpg" class="rounded-circle" alt="..." style=" height:120px; width: 120px;">
+                        </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h1 style="color:#0000cc; padding-left:30px; padding-top: 40px; text-transform: uppercase; text-rendering: optimizeLegibility;" class="deepshd">LOADLESSLABS.com   </h1>
+                        </div>
+                        <div class="col-sm-5">
+                            <h6 style=" padding-top: 100px; padding-left: 200px;  font-weight:bold; font-style: italic; color: #0000cc; font-size: 25px;">Labs will now go virtual..... </h6>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-sm-3" style="background-color: #6c6c7a">
+                    <a href="home.html"><i class="hoverbtn effect-1 sub-a">HOME</i></a>
+                </div>
+                
+                <div class="col-sm-3" style="background-color: #6c6c7a">
+                    <a href="aboutus.html"><i class="hoverbtn effect-1 sub-a">ABOUT US</i></a>
+                </div>
+               
+                <div class="col-sm-3" style="background-color: #6c6c7a">
+                    <a href="faq.html"><i class="hoverbtn effect-1 sub-a">F.A.Q</i></a>
+                </div>
+                <div class=" col-sm-3" style="background-color: #6c6c7a">
+                    <a href="circulars.html"><i class="hoverbtn effect-1 sub-a">CIRCULARS</i></a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class=" control-abt">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card testimonial-card" style="background-color: #96281B">
+                        <div class="avatar"><img src="images/gpglogo.jpg" class="rounded-circle" alt="...">
+                        </div>
+                       
+
+                        <div class="card-body">
+                            <h4 style=" text-align: center; ">GPG</h4>
+                            <h6 style=" text-align: center;">COMPUTER DEPARTMENT<h6>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-9"  style="  background-color: #DCC6E0;"> 
+                     <H1>KSBDFUIHAUSDF</H1> 
+                </div>   
+            </div>
+            
+            <div class=" row" style=" padding-top:15px;">
+                <div class="col-md-9"  style="  background-color: #dcc6e0;">
+                    <H1>KSBDFUIHAUSDF</H1>
+                </div>
+                <div class="col-md-3"> 
+                     <div class="card testimonial-card" style="background-color: #96281B">
+                         <div class="avatar"><img src="images/llllogo.jpg" class="rounded-circle" alt="...">
+                         </div>
+                         
+
+                        <div class="card-body">
+                            <h4 style=" text-align: center; ">LOADLESSLABS</h4>
+                        </div>
+
+                    </div>
+                </div>   
+            </div>
+            <BR><BR>
+            <div class="row" style=" background-color: #6c6c7a;">
+                    <h1 style=" padding-left: 500px;">MEET OUR DEVELOPERS</H1>
+            </div>
+            
+            
+            
+    <div class=" row" style=" padding-left: 35px; padding-right: 35px; background-color: #6c6c7a; padding-bottom:15px; ">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">        
+        <div class="col-md-4">   
+            <div class="card card-01" style="width: 350px; height: 545px;">
+            <img class="card-img-top" src="images/sherry.jpg" alt="Card image cap">
+           
+            <div class=" carousel" style="background-color: #96281B">
+                <span class="badge-box"><i class="fa fa-check"></i></span>
+                <h4 class="card-title" style=" text-align: center; color: #fff; padding-top:50px;">SHARAN CHHUGANI</h4>
+                <p class="card-text" style=" text-align: center; font-family: fantasy; font-weight: lighter; font-size: x-large; color: #fff;">SEM IV<br>COMPUTER DEPARTMENT<br>STUDENT AT GPG</P>
+            </div>
+            </div>
+        </div>
+                
+        <div class="col-md-4">     
+            <div class="card card-01" style="width: 350px; height: 550px;">
+            <img class="card-img-top" src="images/vishwa.jpg" alt="Card image cap">
+            
+            <div class=" carousel" style="background-color: #DCC6E0;">
+                <span class="badge-box"><i class="fa fa-check"></i></span>
+                <h4 class="card-title"  style=" text-align: center; padding-top:50px;">VISHWA SHAH</h4>
+                <p class="card-text" style=" text-align: center; font-family: fantasy; font-weight: bold; font-size: x-large;">SEM IV<br>COMPUTER DEPARTMENT<br>STUDENT AT GPG</P>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card card-01" style="width: 350px; height: 545px;">
+            <img class="card-img-top" src="images/shikha.jpg" alt="Card image cap">
+            
+            <div class=" carousel" style="background-color: #96281B">
+                <span class="badge-box"><i class="fa fa-check"></i></span>
+                <h4 class="card-title"  style=" text-align: center; color: #fff; padding-top:50px;">SHIKHA CHAUHAN</h4>
+                <p class="card-text" style=" text-align: center; font-family: fantasy; font-weight: lighter; font-size: x-large; color: #fff;">SEM IV<br>COMPUTER DEPARTMENT<br>STUDENT AT GPG</P>
+            </div>
+            </div>
+        </div>
+          
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+       
+        <div class="container">
+        </div>
+        <div id="footer">
+            <div class="container">
+                <div class="row" style="padding-top:10px;">
+                    <div class="col-md-4" style="padding-top:15px;">
+                        <center>
+                            <img src="images/GCD.jpg" alt="" style="height: 80px; width: 80px;">
+                            <br>
+                            <h4 class="footertext" style=" padding-top:10px;">GPG<br>Computer Department</h4>
+                            <p class="footertext">Since 52 year, along with more than 15 well experienced faculties and well equipped labs,computer department has been educating thousands of students.<br>
+                        </center>
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <img src="images/contact.png" alt="" style="height: 100px; width: 100px;">
+                            <br>
+                            <h4 class="footertext">Contact</h4>
+                            <p class="footertext">Contact no.<br>Address:Government Polytechnic for Girls, Opp. Physical Research Laboratory,Nr. Atira Navrangpura, Ahmedabad, Gujarat 380015<br>email-id:gpg.computer@gmail.com<br>
+                        </center>
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <img src="images/references.png" alt="" style="height: 100px; width: 100px;">
+                            <br>
+                            <h4 class="footertext">References</h4>
+                            <p class="footertext">GPG WEBSITE:<br><a href="https://sites.google.com/site/gpgcomputer/">GPG Computer</a><BR>TUTORIAL WEBSITES:<br><a href="https://www.w3schools.com/">w3scools</a><BR><a href="https://www.javatpoint.com/">JavaTpoint</a><BR><a href="www.tutorialspoint.com/">TutorialsPoint</a><BR><a href="http://www.gtu.ac.in/syllabus/NEW_DE_SchemeSyllabus.htm">Click here for Syllabus Info</a><BR>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>
+

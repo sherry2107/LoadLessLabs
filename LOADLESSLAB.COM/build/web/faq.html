@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <style>
+            html {
+                position: relative;
+                min-height: 100%;
+            }
+            body {
+                margin-bottom: 60px;
+            }
+            #footer {
+                bottom: 0;
+                width: 100%;
+                height: 350px;
+                background: linear-gradient(#e4e4e7, #6c6c7a, #000000)
+            }
+
+            .container {
+                width: auto;
+                max-width: 680px;
+                padding: 0 15px;
+            }
+            .container .text-muted {
+                margin: 20px 0;
+            }
+            .footertext {
+                color: #ffffff;
+            }
+            .h1{
+                font: "italic";
+                font-family: sans-serif;
+                font-size: large;
+                color: #e6086e;
+            }
+
+            .jumbotron-fluid{
+                height: 95px;
+            }
+            .deepshd{
+                text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+                letter-spacing: .1em;
+            }
+
+            .rounded-circle{
+                height: 150px;
+                width: 150px;
+            }
+
+            .avatar{
+                padding-left: 80px;
+                padding-top: 20px;
+            }
+            .row .block {
+                float: left;
+                width: 25%;
+                height: 95px;
+            }
+            .hoverbtn {
+                display: inline-block;
+                font-size: 18px;
+                font-weight:400;
+                line-height: 50px;
+                cursor: pointer;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                width: 100%;
+                font-family: sans-serif;
+                height: 50px;
+                text-align: center;
+                position: relative;
+                text-decoration: #c82333;
+                z-index: 1;
+                color: #fff;
+            }
+            
+            .hoverbtn:after {
+                pointer-events: none;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                content:'';
+                -webkit-box-sizing: content-box;
+                -moz-box-sizing: content-box;
+                box-sizing: content-box;
+            }
+            .hoverbtn:before {
+                speak: none;
+                font-size: 50px;
+                line-height: 90px;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                display: block;
+                -webkit-font-smoothing: antialiased;
+            }
+            /* Effect 1 */
+            .hoverbtn.effect-1 {
+                background: rgba(255, 255, 255, 0.1);
+                -webkit-transition: background 0.2s, color 0.2s;
+                -moz-transition: background 0.2s, color 0.2s;
+                transition: background 0.2s, color 0.2s;
+            }
+            .hoverbtn.effect-1:after {
+                top: -7px;
+                left: -7px;
+                padding: 7px;
+                box-shadow: 0 0 0 4px #fff;
+                -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+                -webkit-transform: scale(.8);
+                -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+                -moz-transform: scale(.8);
+                -ms-transform: scale(.8);
+                transition: transform 0.2s, opacity 0.2s;
+                transform: scale(.8);
+                opacity: 0;
+            }
+            /* Effect 1a */
+            .hoverbtn.effect-1.sub-a:hover {
+                background: rgba(255, 255, 255, 1);
+                color: #41ab6b;
+            }
+            .hoverbtn.effect-1.sub-a:hover i {
+                color: #41ab6b;
+            }
+            .hoverbtn.effect-1.sub-a:hover:after {
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                transform: scale(1);
+                opacity: 1;
+            }
+           
+             .tab-content.panels-faq {
+                padding: 20px;
+                border: 0;
+            }
+
+            .panel.panel-help {
+                box-shadow: 0 1px 5px rgba(85, 85, 85, 0.15);
+                padding-bottom: 0;
+                border-radius: 2px;
+                overflow: hidden;
+                background-color: #6c6c7a;
+                margin: 0 0 16px;
+                a[href^="#"],
+                a[href^="#"]:hover,
+                a[href^="#"]:focus {
+                outline: none;
+                cursor: pointer;
+                text-decoration: none;
+                }
+            }
+            .panel-heading {
+                background-color: #6c6c7a;
+                padding: 0 16px;
+                line-height: 48px;
+                border-top-right-radius: 2px;
+                border-top-left-radius: 2px;
+                text-decoration: #ffffff;
+            }
+            h2 {      
+                margin: 0;
+                color: #ffffff; 
+                padding: 10px 0 10px;
+                line-height: 20px;
+                letter-spacing: 0;
+                text-transform: none;
+               }
+           
+            .panel-body {
+                background-color: #6c6c7a;
+                color: #ffffff;
+                border-top: 1px solid #ddd;
+                border-radius: 2px;
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+                margin-top: 0;
+            }
+            p {
+                margin: 0 0 16px;
+                color: #ffffff;
+                &:last-of-type {
+                margin: 0;
+                }
+              }   
+        </style>
+        <title>LOADLESSLABS</title>
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+        <link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+    </head>
+    
+    <body style=" background-color: #ededed">
+        <div>
+            <header>
+                <div style="background: linear-gradient( #6c6c7a,#e4e4e7);">
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="avatar"  style=" padding-left:10px; padding-bottom: 10px;"><img src="images/llllogo.jpg" class="rounded-circle" alt="..." style=" height:120px; width: 120px;">
+                        </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h1 style="color:#0000cc; padding-left:30px; padding-top: 40px; text-transform: uppercase; text-rendering: optimizeLegibility;" class="deepshd">LOADLESSLABS.com   </h1>
+                        </div>
+                        <div class="col-sm-5">
+                            <h6 style=" padding-top: 100px; padding-left: 200px;  font-weight:bold; font-style: italic; color: #0000cc; font-size: 25px;">Labs will now go virtual..... </h6>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-sm-3" style="background-color: #6c6c7a">
+                    <a href="home.html"><i class="hoverbtn effect-1 sub-a">HOME</i></a>
+                </div>
+                
+                <div class="col-sm-3" style="background-color: #6c6c7a">
+                    <a href="aboutus.html"><i class="hoverbtn effect-1 sub-a">ABOUT US</i></a>
+                </div>
+               
+                <div class="col-sm-3" style="background-color: #6c6c7a">
+                    <a href="faq.html"><i class="hoverbtn effect-1 sub-a">F.A.Q</i></a>
+                </div>
+                <div class=" col-sm-3" style="background-color: #6c6c7a">
+                    <a href="circulars.html"><i class="hoverbtn effect-1 sub-a">CIRCULARS</i></a>
+                </div>
+            </div>
+        </div>
+    
+        
+         <div class=" row" style=" background-color: #e4e4e7; padding-top: 10px">
+        <h1 style=" padding-left: 430px">Frequently Asked Questions.?</h1>
+    </div>   
+    <div class="container">
+        <div class=" row" style=" padding-top: 20px">
+                <h1 style=" padding-left: 225px">General Questions</h1>
+        </div>      
+    <div class=" row">    
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="tab-content panels-faq">
+      <div class="tab-pane active" id="tab1">
+        <div class="panel-group" id="help-accordion-1">
+          <div class="panel panel-default panel-help">
+            <a href="#answer1" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                  <h2 style=" color: #fff; font-size: 20px;">How do i login for the first time?</h2>
+              </div>
+            </a>
+            <div id="answer1" class="collapse in">
+              <div class="panel-body">
+                  <p style=" color: #fff; padding-left: 15px ">All the valid users will recieve an e-mail including computer generated password, enter that password in the 
+                    password area and you will be navigated to the registration page. After registering, you will be asked to enter 
+                    the password of your choice. After this process you will be navigated to to the deshboard according to your role.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#answer2" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">Why am i taken to registration page after login?</h2>
+              </div>
+            </a>
+            <div id="answer2" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">To recognize the valid users, one email including the random system generated password is sent to the user.
+                    When you will login using that password, you would be asked to register youeself as the system does not have the
+                    nacessory information about the users. After filling up all the information and password, you would be registered.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#answer3" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">Why am I taken to reset password page after registration?</h2>
+              </div>
+            </a>
+            <div id="answer3" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">The system first sent you the random system generated password. After registering yourself, you are asked to 
+                    enter the password of your choice so that you could use the password of your choice one after you are registered and 
+                    using the system frequently.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+<div class=" row" style=" padding-top: 5px">
+                <h1 style=" padding-left: 225px">Student</h1>
+        </div>      
+    <div class=" row">    
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="tab-content panels-faq">
+      <div class="tab-pane active" id="tab1">
+        <div class="panel-group" id="help-accordion-1">
+          <div class="panel panel-default panel-help">
+            <a href="#answer4" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                  <h2 style=" color: #fff; font-size: 20px;">How do I start?</h2>
+              </div>
+            </a>
+            <div id="answer4" class="collapse in">
+              <div class="panel-body">
+                  <p style=" color: #fff; padding-left: 15px ">When students first logs in and registers, they will be directed to their dashboards. You will see the panel in 
+                        the left section of the dashboard. Click on the option you want and that would open on the screen.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#answer5" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">Where do I find my practicals and assignments?</h2>
+              </div>
+            </a>
+            <div id="answer5" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">In the student dashboard, there is a panel including different options which includes practicals and assignments.
+                    Choosing one of them would open the list of either practicals/assignments(i.e if you choose practicals, the list of
+                    practicals would open and if it has any sub-practicals, it would also include that.)</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#answer6" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">Where do I edit the practicals and assignments?</h2>
+              </div>
+            </a>
+            <div id="answer6" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">Click on any practical/assignment from the list and you would be provided editors as required.(i.e
+                    for assignments, you would be given the text-area.)</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#answer7" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">How do I edit my profile?</h2>
+              </div>
+            </a>
+            <div id="answer7" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">In the left panel, there is an option to edit profiles. Click on there and you would be shown your current
+                    information. Change the information you want to change and click on save.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#answer8" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">My practicals/assignments are blocked...</h2>
+              </div>
+            </a>
+            <div id="answer8" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">Practicals and assignments are uploaded by the faculties with the due date. If the student misses the due-date, 
+                    it would be blocked. the student won't be able to submit the practical/assignment one the due date has passed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+<div class=" row" style=" padding-top: 10px">
+                <h1 style=" padding-left: 225px">Faculty</h1>
+        </div>      
+    <div class=" row">    
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="tab-content panels-faq">
+      <div class="tab-pane active" id="tab1">
+        <div class="panel-group" id="help-accordion-1">
+          <div class="panel panel-default panel-help">
+            <a href="#answer9" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                  <h2 style=" color: #fff; font-size: 20px;">How do I start?</h2>
+              </div>
+            </a>
+            <div id="answer9" class="collapse in">
+              <div class="panel-body">
+                  <p style=" color: #fff; padding-left: 15px ">When Faculties first logs in and registers, they will be directed to their dashboards. You will see the panel in 
+                        the left section of the dashboard. Click on the option you want and that would open on the screen.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#answer10" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">How do I upload practicals/assignments?</h2>
+              </div>
+            </a>
+            <div id="answer10" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">After loging in, in the side panel of the dashboard, you will see an upload practical and an upload assignment tab.
+                    By click on it, you will see a table containing already uploaded practicals/assignments. Click the '+' icon in the next row
+                    and enter the aim and click on upload.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#answer11" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">How do I check the practicals/assignments?</h2>
+              </div>
+            </a>
+            <div id="answer11" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">NDSBALCLDHDB</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#answer12" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">How do I edit my profile?</h2>
+              </div>
+            </a>
+            <div id="answer12" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">In the left panel, there is an option to edit profiles. Click on there and you would be shown your current
+                     information. Change the information you want to change and click on save.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <div class="panel-group" id="help-accordion-2">      
+          <div class="panel panel-default panel-help">
+            <a href="#answer14" data-toggle="collapse" data-parent="#help-accordion-2">
+              <div class="panel-heading">
+                <h2 style=" color: #fff">Lorem ipsum?</h2>
+              </div>
+            </a>
+            <div id="answer14" class="collapse in">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
+                <p style=" color: #fff; padding-left: 15px"><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+        <div class=" row" style=" padding-top: 10px">
+                   <h1 style=" padding-left: 225px">Admin</h1>
+        </div>      
+    <div class=" row">    
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="tab-content panels-faq">
+      <div class="tab-pane active" id="tab1">
+        <div class="panel-group" id="help-accordion-1">
+          <div class="panel panel-default panel-help">
+            <a href="#opret-produkt" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                  <h2 style=" color: #fff; font-size: 20px;">How do I start?</h2>
+              </div>
+            </a>
+            <div id="opret-produkt" class="collapse in">
+              <div class="panel-body">
+                  <p style=" color: #fff; padding-left: 15px ">When Admin first logs in, they will be directed to their dashboards. You will see the panel in the left section 
+                        of the dashboard. Click on the option you want and that would open on the screen.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#rediger-produkt" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">How do I upload circulars?</h2>
+              </div>
+            </a>
+            <div id="rediger-produkt" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">Make a .doc file including the circular on your pc. Click on the option 'Upload Circulars' in side panel on 
+                    your dashboard. Add the title of the circular. You will be asked to choose a file from your pc. add the .doc file. 
+                    You can choose a file by clicking on 'Browse' option. After choosing, click on 'Upload File' and the file will be 
+                    uploaded.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#ret-pris" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">How do I Add users?</h2>
+              </div>
+            </a>
+            <div id="ret-pris" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">Make a file including Registration id and email of the users. Click on the option 'Add Students'/'Add Faculties'
+                        from the side panel. You will be asked to choose a file from your pc. Add the .doc file. You can choose a file by 
+                        clicking on 'Browse' option. After choosing, click on 'Upload File' and users mentioned in the file will be added.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default panel-help">
+            <a href="#slet-produkt" data-toggle="collapse" data-parent="#help-accordion-1">
+              <div class="panel-heading">
+                <h2 style=" color: #fff; font-size: 20px;">How do I remove users?</h2>
+              </div>
+            </a>
+            <div id="slet-produkt" class="collapse">
+              <div class="panel-body">
+                <p style=" color: #fff; padding-left: 15px">Make a file including Registration id and email of the users. Click on the option 'Remove Students'/'Remove 
+                    Faculties' from the side panel. You will be asked to choose a file from your pc. Add the .doc file. You can choose 
+                    a file by clicking on 'Browse' option. After choosing, click on 'Upload File' and users mentioned in the file will 
+                    be removed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+</div>        
+        
+        
+        
+           <div class="container">
+        </div>
+        <div id="footer">
+            <div class="container">
+                <div class="row" style="padding-top:10px;">
+                    <div class="col-md-4" style="padding-top:15px;">
+                        <center>
+                            <img src="images/GCD.jpg" alt="" style="height: 80px; width: 80px;">
+                            <br>
+                            <h4 class="footertext" style=" padding-top:10px;">GPG<br>Computer Department</h4>
+                            <p class="footertext">Since 52 year, along with more than 15 well experienced faculties and well equipped labs,computer department has been educating thousands of students.<br>
+                        </center>
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <img src="images/contact.png" alt="" style="height: 100px; width: 100px;">
+                            <br>
+                            <h4 class="footertext">Contact</h4>
+                            <p class="footertext">Contact no.<br>Address:Government Polytechnic for Girls, Opp. Physical Research Laboratory,Nr. Atira Navrangpura, Ahmedabad, Gujarat 380015<br>email-id:gpg.computer@gmail.com<br>
+                        </center>
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <img src="images/references.png" alt="" style="height: 100px; width: 100px;">
+                            <br>
+                            <h4 class="footertext">References</h4>
+                            <p class="footertext">GPG WEBSITE:<br><a href="https://sites.google.com/site/gpgcomputer/">GPG Computer</a><BR>TUTORIAL WEBSITES:<br><a href="https://www.w3schools.com/">w3scools</a><BR><a href="https://www.javatpoint.com/">JavaTpoint</a><BR><a href="www.tutorialspoint.com/">TutorialsPoint</a><BR><a href="http://www.gtu.ac.in/syllabus/NEW_DE_SchemeSyllabus.htm">Click here for Syllabus Info</a><BR>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>
